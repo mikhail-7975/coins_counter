@@ -15,7 +15,9 @@ from .image_processing import (
 
 
 class DatasetGenerator:
-    def __init__(self, n_images, relative_object_size_range, object_count_range):
+    def __init__(
+        self, n_images, relative_object_size_range=(5, 8), object_count_range=(4, 10)
+    ):
         self.n_images = n_images
         s1, s2 = relative_object_size_range
         self.object_size_range = (int(1 / s1), int(1 / s2))
