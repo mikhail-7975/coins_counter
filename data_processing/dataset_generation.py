@@ -16,10 +16,13 @@ from .image_processing import (
 
 class DatasetGenerator:
     def __init__(
-        self, n_images, relative_object_size_range=(5, 8), object_count_range=(4, 10)
+        self,
+        n_images,
+        relative_object_size_range=(0.125, 0.2),
+        object_count_range=(4, 10),
     ):
         self.n_images = n_images
-        s1, s2 = relative_object_size_range
+        s2, s1 = relative_object_size_range
         self.object_size_range = (int(1 / s1), int(1 / s2))
         self.object_count_range = object_count_range
         self.bg_transforms = A.Compose(
@@ -87,8 +90,8 @@ class DatasetGenerator:
     def __generate_object_position(self, target_size, object_size):
         bg_w, bg_h = target_size
         obj_w, obj_h = object_size
-        x = random.randint(0, bg_w - obj_w)
-        y = random.randint(0, bg_h - obj_h)
+        x = random.randint(1, bg_w - obj_w - 1)
+        y = random.randint(1, bg_h - obj_h - 1)
         return x, y
 
     def generate_dataset(
@@ -130,7 +133,7 @@ class DatasetGenerator:
                 )
                 for _ in range(n_objects):
                     # for cls_id, money in enumerate(object_names):
-                    cls_id = random.randint(0, len(object_names))
+                    cls_id = random.randint(0, len(object_names) - 1)
                     object_name = object_names[cls_id]
                     ann = annotations[object_name]
 
