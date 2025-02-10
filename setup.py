@@ -16,8 +16,8 @@ setup(
     ],
     python_requires=">=3.6",
     install_requires=[
-        "albumentations==2.0.3",
-        "opencv-python-headless==4.11.0.86",
-        "numpy==2.2.2",
+        "albumentations>=2.0.3",
+        "opencv-python-headless>=4.11.0.86",
+        "numpy>=1.26.4",
     ],
 )
