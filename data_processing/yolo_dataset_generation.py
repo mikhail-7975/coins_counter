@@ -14,7 +14,7 @@ from .image_processing import (
 )
 
 
-class DatasetGenerator:
+class YoloDatasetGenerator:
     def __init__(
         self,
         n_images,
