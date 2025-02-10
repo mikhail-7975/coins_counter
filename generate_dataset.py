@@ -1,7 +1,7 @@
 from pathlib import Path
 
-from data_processing.yolo2classification import Yolo2ClassificationConverter
-from data_processing.yolo_dataset_generation import YoloDatasetGenerator
+from dataset_generator.yolo2classification import Yolo2ClassificationConverter
+from dataset_generator.yolo_dataset_generation import YoloDatasetGenerator
 
 g = YoloDatasetGenerator(n_images=150)
 
